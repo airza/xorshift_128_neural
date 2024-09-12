@@ -32,6 +32,8 @@ for i in range(30000):
         tol = .1
         beppis = torch.abs(A_bit-test_A)
         indices = torch.nonzero(beppis > tol).flatten()
+        #some debugging stuff to see if the direction the gradients go actually matches the direction
+        #that they should
         print(test_A.grad)
         print(torch.sign((test_A- A_bit)[indices[:]]/test_A.grad[indices[:]]))
         if loss.item()<.005:

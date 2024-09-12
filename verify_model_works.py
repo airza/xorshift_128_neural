@@ -22,6 +22,8 @@ def transform_vector(vector):
     one_randoms = 0.5 + (torch.rand_like(vector) * 0.5)
     return torch.where(vector == 0, zero_randoms, one_randoms)
 for i in range(1000):
+    if i%100==0:
+        print(i)
     A = random.randint(0,MAXSIZE)
     B = random.randint(0,MAXSIZE)
     x = transform_vector(int_to_bits_tensor(A))
