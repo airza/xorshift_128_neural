@@ -7,3 +7,4 @@ hp_search_*
 *.pth
 output
 
+.venv
