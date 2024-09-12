@@ -1,5 +1,5 @@
 import torch
-from forwardPass.utils import int_to_bits_tensor, float_bits_to_int, print_comparable_bits
+from utils import int_to_bits_tensor, float_bits_to_int, print_comparable_bits
 from XorShift128PlusNetwork import XorShift128NN
 import random
 torch.set_printoptions(precision=8,sci_mode=True)

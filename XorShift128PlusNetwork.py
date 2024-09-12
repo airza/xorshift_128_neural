@@ -2,17 +2,17 @@ import torch
 from torch import nn as nn
 from DifferentiableShiftNetwork import DifferentiableShiftNetwork
 from LogicGateNetwork import LogicGateNetwork
-from forwardPass.AddWithCarryNetwork import AddWithCarryNetwork
+from AddWithCarryNetwork import AddWithCarryNetwork
 
 
 class XorShift128NN(nn.Module):
     def __init__(self):
         super().__init__()
-        self.shift1 = DifferentiableShiftNetwork(64,3,23)
-        self.shift2 = DifferentiableShiftNetwork(64,3,-17)
-        self.shift3 = DifferentiableShiftNetwork(64,3,-26)
+        self.shift1 = DifferentiableShiftNetwork(64,5,23)
+        self.shift2 = DifferentiableShiftNetwork(64,5,-17)
+        self.shift3 = DifferentiableShiftNetwork(64,5,-26)
         self.xor = LogicGateNetwork('xor')
-        self.adder = AddWithCarryNetwork(3)
+        self.adder = AddWithCarryNetwork()
     def forward(self,x):
         f = 10
         x *=f

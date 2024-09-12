@@ -1,6 +1,6 @@
 import torch
 from torch import nn as nn
-from forwardPass.LogicGateNode import LogicGateNode
+from LogicGateNode import LogicGateNode
 class LogicGateNetwork(nn.Module):
     def __init__(self,type=None):
         super().__init__()

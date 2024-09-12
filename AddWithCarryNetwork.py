@@ -4,7 +4,7 @@ from AddWithCarryNode import AddWithCarryNode
 import itertools
 
 class AddWithCarryNetwork(nn.Module):
-    def __init__(self, inputWidth):
+    def __init__(self, inputWidth=3):
         super().__init__()
         self.node = AddWithCarryNode(inputWidth)
     def forward(self, x,y):

@@ -1,5 +1,5 @@
 import torch
-from forwardPass.utils import int_to_bits_tensor, float_bits_to_int
+from utils import int_to_bits_tensor, float_bits_to_int
 from XorShift128PlusNetwork import XorShift128NN
 import random
 MAXSIZE = 0xFFFFFFFFFFFFFFFF
@@ -15,6 +15,9 @@ def xorshift128plus(x, y):
     return generated, x, y,
 def transform_vector(vector):
     return vector
+    #Critically, it is very hard to set a high enough certainty for this to converge for the _full_ extension.
+    #If you remove the above return statement it will test it on the full range of possible values, but
+    #it will require a very very high network certainty to converge for all values.
     zero_randoms = torch.rand_like(vector) * 0.5
     one_randoms = 0.5 + (torch.rand_like(vector) * 0.5)
     return torch.where(vector == 0, zero_randoms, one_randoms)
